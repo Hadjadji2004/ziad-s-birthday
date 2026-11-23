@@ -61,6 +61,8 @@
 </head>
 
 <body>
+    <audio id="birthdayMusic" src="./ziad.mp3" loop preload="auto"></audio>
+
     <div id="wrapper">
         <div class="flag__birthday">
             <img src="./1.png" alt="Birthday flag" width="350" class="flag__left">
@@ -263,6 +265,11 @@
         let intervalTitle;
 
         $("#btn__letter").on("click", function () {
+            const birthdayMusic = document.getElementById("birthdayMusic");
+            if (birthdayMusic) {
+                birthdayMusic.play().catch(() => {});
+            }
+
             currentIndexLetter = 0;
             currentIndexTitle = 0;
             if (title__letter) title__letter.textContent = "";
