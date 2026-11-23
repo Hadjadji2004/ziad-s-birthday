@@ -239,6 +239,26 @@
         const text__letter = document.querySelector(".text__letter p");
         const title__letter = document.querySelector(".title__letter");
 
+        const birthdayMusic = document.getElementById("birthdayMusic");
+
+        function startBirthdayMusic() {
+            if (!birthdayMusic) return;
+            birthdayMusic.play().then(() => {
+                removeUnlockListeners();
+            }).catch(() => {});
+        }
+
+        function removeUnlockListeners() {
+            document.removeEventListener("click", startBirthdayMusic);
+            document.removeEventListener("touchstart", startBirthdayMusic);
+            document.removeEventListener("keydown", startBirthdayMusic);
+        }
+
+        window.addEventListener("DOMContentLoaded", startBirthdayMusic);
+        document.addEventListener("click", startBirthdayMusic, { passive: true });
+        document.addEventListener("touchstart", startBirthdayMusic, { passive: true });
+        document.addEventListener("keydown", startBirthdayMusic, { passive: true });
+
         setTimeout(function () {
             const timeDatetxt = setInterval(function () {
                 if (!date__of__birth) {
@@ -265,11 +285,7 @@
         let intervalTitle;
 
         $("#btn__letter").on("click", function () {
-            const birthdayMusic = document.getElementById("birthdayMusic");
-            if (birthdayMusic) {
-                birthdayMusic.play().catch(() => {});
-            }
-
+            startBirthdayMusic();
             currentIndexLetter = 0;
             currentIndexTitle = 0;
             if (title__letter) title__letter.textContent = "";
