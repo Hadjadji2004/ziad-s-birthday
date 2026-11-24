@@ -33,11 +33,33 @@
             color: var(--text-main) !important;
         }
 
+        .date__of__birth {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            width: auto !important;
+            min-width: 220px !important;
+            height: auto !important;
+            min-height: 42px !important;
+            z-index: 5 !important;
+        }
+
+        .left .btn {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            z-index: 10 !important;
+            position: relative !important;
+        }
+
         #btn__letter,
         .mail {
             background: linear-gradient(135deg, var(--royal-blue), var(--navy)) !important;
             color: #ffffff !important;
             border-color: var(--royal-bright) !important;
+            pointer-events: auto !important;
+            cursor: pointer !important;
+            z-index: 15 !important;
         }
 
         .box__account,
@@ -254,12 +276,9 @@
             document.removeEventListener("keydown", startBirthdayMusic);
         }
 
-        window.addEventListener("DOMContentLoaded", startBirthdayMusic);
-        document.addEventListener("click", startBirthdayMusic, { passive: true });
-        document.addEventListener("touchstart", startBirthdayMusic, { passive: true });
-        document.addEventListener("keydown", startBirthdayMusic, { passive: true });
+        window.addEventListener("DOMContentLoaded", function () {
+            startBirthdayMusic();
 
-        setTimeout(function () {
             const timeDatetxt = setInterval(function () {
                 if (!date__of__birth) {
                     clearInterval(timeDatetxt);
@@ -278,24 +297,28 @@
                     }
                     clearInterval(timeDatetxt);
                 }
-            }, 100);
-        }, 12000);
+            }, 90);
+        });
+
+        document.addEventListener("click", startBirthdayMusic, { passive: true });
+        document.addEventListener("touchstart", startBirthdayMusic, { passive: true });
+        document.addEventListener("keydown", startBirthdayMusic, { passive: true });
 
         let intervalContent;
         let intervalTitle;
 
-        $("#btn__letter").on("click", function () {
+        function openLetterBox() {
             startBirthdayMusic();
+            clearInterval(intervalContent);
+            clearInterval(intervalTitle);
+
             currentIndexLetter = 0;
             currentIndexTitle = 0;
             if (title__letter) title__letter.textContent = "";
             if (text__letter) text__letter.textContent = "";
 
-            $(".box__letter").slideDown();
-
-            setTimeout(function () {
-                $(".letter__border").slideDown();
-            }, 1000);
+            $(".box__letter").stop(true, true).slideDown(300);
+            $(".letter__border").stop(true, true).slideDown(400);
 
             setTimeout(function () {
                 intervalTitle = setInterval(function () {
@@ -312,20 +335,20 @@
                         title__letter.appendChild(heartIcon);
                         clearInterval(intervalTitle);
                     }
-                }, 100);
-            }, 2000);
+                }, 80);
+            }, 600);
 
             setTimeout(function () {
                 document.querySelector("#heart__letter")?.classList.add("animationOp");
                 document.querySelector(".love__img")?.classList.add("animationOp");
                 document.querySelector("#mewmew")?.classList.add("animationOp");
-            }, 2800);
+            }, 1000);
 
             setTimeout(function () {
                 document.querySelectorAll(".heart").forEach((item) => {
                     item.classList.add("animation");
                 });
-            }, 3500);
+            }, 1400);
 
             setTimeout(function () {
                 intervalContent = setInterval(function () {
@@ -339,8 +362,14 @@
                     } else {
                         clearInterval(intervalContent);
                     }
-                }, 50);
-            }, 6000);
+                }, 40);
+            }, 1800);
+        }
+
+        document.addEventListener("click", function (e) {
+            if (e.target.closest("#btn__letter")) {
+                openLetterBox();
+            }
         });
 
         $(".close").on("click", function () {
