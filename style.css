@@ -1154,6 +1154,16 @@ body {
 .couple__gallery.active .couple__photo__card:nth-child(8) { transition-delay: 0.40s; }
 .couple__gallery.active .couple__photo__card:nth-child(9) { transition-delay: 0.45s; }
 .couple__gallery.active .couple__photo__card:nth-child(10) { transition-delay: 0.50s; }
+.couple__gallery.active .couple__photo__card:nth-child(11) { transition-delay: 0.55s; }
+.couple__gallery.active .couple__photo__card:nth-child(12) { transition-delay: 0.60s; }
+.couple__gallery.active .couple__photo__card:nth-child(13) { transition-delay: 0.65s; }
+.couple__gallery.active .couple__photo__card:nth-child(14) { transition-delay: 0.70s; }
+.couple__gallery.active .couple__photo__card:nth-child(15) { transition-delay: 0.75s; }
+.couple__gallery.active .couple__photo__card:nth-child(16) { transition-delay: 0.80s; }
+.couple__gallery.active .couple__photo__card:nth-child(17) { transition-delay: 0.85s; }
+.couple__gallery.active .couple__photo__card:nth-child(18) { transition-delay: 0.90s; }
+.couple__gallery.active .couple__photo__card:nth-child(19) { transition-delay: 0.95s; }
+.couple__gallery.active .couple__photo__card:nth-child(20) { transition-delay: 1.00s; }
 
 .couple__photo__card:hover {
     transform: translateY(-4px) scale(1.02);
