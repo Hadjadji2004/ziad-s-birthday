@@ -128,6 +128,11 @@
                         </div>
                     </button>
                 </div>
+
+                <button id="btn__gallery" type="button">
+                    <i class="fa-regular fa-images"></i>
+                    click here 2
+                </button>
             </div>
 
             <div class="right">
@@ -238,6 +243,57 @@
                         <div class="imageCute2">
                             <img src="./heart_letter.png" alt="">
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="couple__gallery" id="coupleGallery" aria-hidden="true">
+            <div class="couple__gallery__box">
+                <button type="button" class="couple__gallery__close" id="closeGallery" title="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h3 class="couple__gallery__title">Our Memories 💙</h3>
+                <div class="couple__gallery__grid">
+                    <div class="couple__photo__card">
+                        <img src="./zizo1.jpg" alt="Zizo 1">
+                        <p class="couple__photo__caption">أجمل بداية معك</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo2.jpg" alt="Zizo 2">
+                        <p class="couple__photo__caption">ضحكتك دايماً تفرحني</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo3.jpg" alt="Zizo 3">
+                        <p class="couple__photo__caption">مع بعض في كل خطوة</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo4.jpg" alt="Zizo 4">
+                        <p class="couple__photo__caption">لحظات ما تتنساش</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo5.jpg" alt="Zizo 5">
+                        <p class="couple__photo__caption">قلبي معاك في كل وقت</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo6.jpg" alt="Zizo 6">
+                        <p class="couple__photo__caption">فرحتي تكبر بوجودك</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo7.jpg" alt="Zizo 7">
+                        <p class="couple__photo__caption">أحلى ذكريات العمر</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo8.jpg" alt="Zizo 8">
+                        <p class="couple__photo__caption">سندي وأماني</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo9.jpg" alt="Zizo 9">
+                        <p class="couple__photo__caption">كل عام وأنت بخير</p>
+                    </div>
+                    <div class="couple__photo__card">
+                        <img src="./zizo10.jpg" alt="Zizo 10">
+                        <p class="couple__photo__caption">ربي يخليك ليا يا عمري</p>
                     </div>
                 </div>
             </div>
@@ -405,6 +461,36 @@
         if (closeMail && boxmail) {
             closeMail.addEventListener('click', function () {
                 boxmail.classList.remove('active');
+            });
+        }
+
+        const btnGallery = document.getElementById("btn__gallery");
+        const coupleGallery = document.getElementById("coupleGallery");
+        const closeGallery = document.getElementById("closeGallery");
+
+        if (btnGallery && coupleGallery) {
+            btnGallery.addEventListener("click", function () {
+                startBirthdayMusic();
+                coupleGallery.classList.add("active");
+                coupleGallery.setAttribute("aria-hidden", "false");
+            });
+        }
+
+        function hideCoupleGallery() {
+            if (!coupleGallery) return;
+            coupleGallery.classList.remove("active");
+            coupleGallery.setAttribute("aria-hidden", "true");
+        }
+
+        if (closeGallery) {
+            closeGallery.addEventListener("click", hideCoupleGallery);
+        }
+
+        if (coupleGallery) {
+            coupleGallery.addEventListener("click", function (e) {
+                if (e.target === coupleGallery) {
+                    hideCoupleGallery();
+                }
             });
         }
     </script>
