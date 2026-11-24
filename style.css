@@ -184,7 +184,7 @@ body {
     display: flex;
     justify-content:space-around;
     align-items: center;
-    background-color: var(--color-text-pink);
+    background-color: var(--color-text-bleu);
     border-radius: 50px;
     margin-top: 20px;
     font-family: "Sriracha", cursive;
