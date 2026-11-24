@@ -1164,6 +1164,14 @@ body {
 .couple__gallery.active .couple__photo__card:nth-child(18) { transition-delay: 0.90s; }
 .couple__gallery.active .couple__photo__card:nth-child(19) { transition-delay: 0.95s; }
 .couple__gallery.active .couple__photo__card:nth-child(20) { transition-delay: 1.00s; }
+.couple__gallery.active .couple__photo__card:nth-child(21) { transition-delay: 1.05s; }
+.couple__gallery.active .couple__photo__card:nth-child(22) { transition-delay: 1.10s; }
+.couple__gallery.active .couple__photo__card:nth-child(23) { transition-delay: 1.15s; }
+.couple__gallery.active .couple__photo__card:nth-child(24) { transition-delay: 1.20s; }
+.couple__gallery.active .couple__photo__card:nth-child(25) { transition-delay: 1.25s; }
+.couple__gallery.active .couple__photo__card:nth-child(26) { transition-delay: 1.30s; }
+.couple__gallery.active .couple__photo__card:nth-child(27) { transition-delay: 1.35s; }
+.couple__gallery.active .couple__photo__card:nth-child(28) { transition-delay: 1.40s; }
 
 .couple__photo__card:hover {
     transform: translateY(-4px) scale(1.02);
